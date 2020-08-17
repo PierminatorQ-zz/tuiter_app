@@ -15,10 +15,15 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.content %></td>
-        <td><%= tweet.user_id %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tweet.user.name %></td>
+        <td><%=image_tag(tweet.user.profile_pic, size: "64x64") %></td>
+        <%# <td><%= link_to 'Show', tweet  </td> %>
+        <td><%= link_to edit_tweet_path(tweet) do %>
+          <span class="icon"><i class="lni lni-pencil-alt"></i></span> 
+        <% end %> </td>
+        <td><%= link_to tweet , method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="lni lni-trash"></i>
+        <%end%> </td>
       </tr>
     <% end %>
   </tbody>

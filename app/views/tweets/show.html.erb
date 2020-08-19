@@ -17,5 +17,6 @@
 
 <h5> Usuarios que le gusta este tweet</h5>
 <% @tweet.likes.each do |tweet| %>
+  <p><%= image_tag(tweet.user.profile_pic, size: '64') %></p>
   <p><%= tweet.user %></p>
 <% end %>

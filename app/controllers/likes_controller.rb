@@ -5,7 +5,7 @@ class LikesController < ApplicationController
 
     def create
         if already_liked?
-          flash[:notice] = "You can't like more than once"
+          flash[:notice] = "Ya le diste Me Gusta"
         else
           @tweet.likes.create(user_id: current_user.id)
         end
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
       def destroy
         if !(already_liked?)
-          flash[:notice] = "Cannot unlike"
+          flash[:notice] = "No es posible retirar el Like"
         else
           @like.destroy
         end

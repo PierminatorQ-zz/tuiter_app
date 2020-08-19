@@ -2,6 +2,12 @@
 
 <h1>Tweets</h1>
 
+<!--Form for create tweets - only for users -->
+<% if current_user%>
+<%= render 'form_index', tweet: @tweet %>
+<%end%>
+<br>
+
 <table>
   <thead>
     <tr>
@@ -16,14 +22,41 @@
       <tr>
         <td><%= tweet.content %></td>
         <td><%= tweet.user.name %></td>
-        <td><%=image_tag(tweet.user.profile_pic, size: "64x64") %></td>
-        <%# <td><%= link_to 'Show', tweet  </td> %>
+        <td><%= image_tag(tweet.user.profile_pic, size: '64') %></td>
+        <!--Likes count-->
+        <td><%= tweet.likes.count %> <%= (tweet.likes.count) == 1 ? 'Like' : 'Likes'%></td>
+        <!--Show button -->
+        <td><%= link_to tweet do %>
+        <%= time_ago_in_words(tweet.created_at) %>
+        <%end%></td>
+
+        <!--like button -->
+        <td>  <% if signed_in? %>
+                <% pre_like = tweet.likes.find { |like| like.user_id == current_user.id} %>
+                <% if pre_like %>
+                    <%= link_to tweet_like_path(tweet, pre_like), method: :delete do %>
+                    <span><i class="lni lni-heart-filled"></i></span>
+                    <%end%>
+                  <% else %>
+                    <%= link_to tweet_likes_path(tweet), method: :post do %>
+                    <span><i class="lni lni-heart"></i></span>
+                    <%end%>
+                <% end %>
+                
+                <% end %>
+        
+        </td>
+        <!--Edit button  -->
         <td><%= link_to edit_tweet_path(tweet) do %>
-          <span class="icon"><i class="lni lni-pencil-alt"></i></span> 
-        <% end %> </td>
-        <td><%= link_to tweet , method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="lni lni-trash"></i>
-        <%end%> </td>
+        <span><i class="lni lni-pencil-alt"></i></span>
+        <%end%>
+        </td>
+        <!--Destroy button -->
+        <td><%= link_to tweet, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span><i class="lni lni-trash"></i></span>
+        <%end%>
+        </td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +64,4 @@
 
 <br>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<%# link_to 'New Tweet', new_tweet_path %>

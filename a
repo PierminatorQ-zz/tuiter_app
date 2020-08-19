@@ -1,0 +1,36 @@
+git[33mcommit 9e3566d5d88f1e92690f38db1efbbb079bfa43ca[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mramalike[m[33m)[m
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Mon Aug 17 00:25:58 2020 -0400
+
+    redirect added, profiles pics added
+
+[33mcommit c7255217ad7ad16654ea5cc39e4717b04a5f7a2d[m
+Merge: f2e06c4 dea441a
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Sun Aug 16 21:06:48 2020 -0400
+
+    asociations between models added, bootstrap added
+
+[33mcommit f2e06c49eb99d3bcfb754b4fd15462d5d35d7009[m
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Sun Aug 16 20:57:39 2020 -0400
+
+    asociations between models added, bootstrap added
+
+[33mcommit dea441acba9cf2a2c2ad103170fec04e8ca14dae[m
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Sun Aug 16 15:07:08 2020 -0400
+
+    tweet model created
+
+[33mcommit a90872f944bec36c8a7c6717d5ccd6db8b3cc8ad[m
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Sun Aug 16 14:50:31 2020 -0400
+
+    devise added, views and controllers
+
+[33mcommit 77da804927b5b1866b5216e14f16ba8eb7b8fa07[m
+Author: PierminatorQ <pierrequintero@gmail.com>
+Date:   Sun Aug 16 14:00:01 2020 -0400
+
+    first commit2

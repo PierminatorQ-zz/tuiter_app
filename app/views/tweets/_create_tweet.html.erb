@@ -1,0 +1,20 @@
+
+<div class="container pl-5 pr-5">
+  <div class="row">
+    <div class="col-2 d-flex justify-content-end">
+   <%= image_tag(current_user.profile_pic, size: '55') %> 
+    </div>
+    <div class="col-10 card">
+
+      <%= form_with(model: tweet, local: true) do |form| %>
+        <div class="field">
+          <%= form.text_area(:content, cols: 27, rows: 3, class:"text-area none", placeholder:"What's happening?") %>
+        </div>
+        </div>
+        <div class="actions ml-auto">
+          <%= form.submit "Tweet", class:"btn-blue mt-3" %>
+        </div>
+      <% end %>
+      
+  </div>
+</div>

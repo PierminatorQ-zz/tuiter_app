@@ -1,0 +1,75 @@
+
+<div class="container">
+  <div class="row">
+  <% @tweets.each do |tweet| %>
+    <div class="col-2 px-0 d-flex justify-content-end">
+    <!--profile_pic -->
+        <%= image_tag(tweet.user.profile_pic, size: '64') %> 
+    </div>
+
+    <div class="col-10 content">
+        <div class="row">
+        <!--name user  -->
+            <div class="col"><strong><%= tweet.user.name %></strong><i class="lni lni-checkmark-circle text-blue-dark ml-1"></i><small class="pl-3"><%= tweet.user.email %></small></div>
+            <div class="col-1 ml-auto">
+            <!--destroy button  -->
+            <% if signed_in?%>
+                <%= link_to tweet, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="delete"><i class="lni lni-sm lni-trash"></i></span>
+                <%end%>
+            <%end%>
+            </div>
+        </div>
+
+            <div class="contenido mt-2 mb-2">
+            <!--Content -->
+            <%= tweet.content %>
+            </div>
+
+        <div class="row">
+        <!--date link  -->
+            <div class="col-3 date"><%= link_to tweet do %>
+                <%= time_ago_in_words(tweet.created_at) %>
+                <%end%>
+            </div>
+            <div class="col-3">
+            <!--Likes buttons  -->
+                <% if signed_in? %>
+                        <% pre_like = tweet.likes.find { |like| like.user_id == current_user.id} %>
+                        <% if pre_like %>
+                            <%= link_to tweet_like_path(tweet, pre_like), method: :delete do %>
+                            <span><i class="lni lni-heart-filled lleno"></i></span>
+                            <%end%>
+                        <% else %>
+                            <%= link_to tweet_likes_path(tweet), method: :post do %>
+                            <span><i class="lni lni-heart lleno"></i></span>
+                            <%end%>
+                        <% end %>
+                    <% else %>
+                    <span><i class="lni lni-heart-filled lleno"></i></span>
+                <% end %>
+            
+            
+                <small class="small-2"><%= tweet.likes.count %></small></div>
+            <div class="col-3">
+            <!--Edit button  -->
+                <%= link_to edit_tweet_path(tweet) do %>
+                <span><i class="lni lni-pencil-alt"></i></span>
+                <%end%>
+            </div>
+            <div class="col-3">
+                
+            <!--retweet button  -->
+                <%= link_to root_path do %>
+                <span><i class="lni lni-share"></i></span>
+                <%end%>
+                
+            </div>
+        </div>
+    <hr>
+    </div>
+
+      <% end %>
+      
+  </div>
+</div>

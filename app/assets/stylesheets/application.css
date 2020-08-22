@@ -102,18 +102,34 @@ a:hover {
 }
 
 .btn-blue-follow {
-    color:#FFFFFF;
-    background-color:var(--blue-light);
-    border-color:var(--blue-light);
+    margin: 0 0 0 10px;
+    color:var(--blue-light);
+    background-color:var(--dark-light);
+    border: 1px solid var(--blue-light);
     border-radius:20px;
-    font-size: 0.8em;
+    font-size: 0.7em;
     font-weight: 400;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
 }
 
+.btn-blue-unfollow {
+    color:white;
+    background-color:var(--blue-light);
+    border-color:var(--blue-dark);
+    border-radius:20px;
+    font-size: 0.7em;
+    font-weight: 400;
+    padding: 5px 10px 5px 10px;
+}
+.btn-blue-unfollow:hover {
+    color:var(--blue-light);
+    background-color:var(--dark-light);
+    border: 1px solid var(--blue-light);
+    }
+
 .btn-blue-follow:hover {
-    color:#FFFFFF;
-    background-color:var(--blue-dark);
+    color:white;
+    background-color:var(--blue-light);
     border-color:var(--blue-dark);
 }
 

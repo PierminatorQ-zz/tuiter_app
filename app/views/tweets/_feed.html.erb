@@ -14,13 +14,14 @@
          <!--follow button  -->   
             <%if signed_in?%>
                 <% if current_user.is_following?(tweet.user)%>
-                    <%= link_to 'Unfollow', friend_path(tweet.user), method: :delete, class:"btn-blue-follow" %>
+                    <%= link_to 'Unfollow', friend_path(tweet.user), method: :delete, class:"btn-blue-unfollow" %>
                 <%else%>
                     <%= link_to 'Follow', user_friends_path(tweet.user), method: :post, class:"btn-blue-follow" %>
                 <%end%> 
             <%end%>
         <!--email user  -->
             <small class="pl-3"><%= tweet.user.email %></small></div>
+        <!--retweet message  -->
              <div class="col-3 text-center">                 
              <% if tweet.is_retweet?%>
                     <small><%=link_to "#{tweet.user} has retweeted...", tweet.tweet_ref%></small>

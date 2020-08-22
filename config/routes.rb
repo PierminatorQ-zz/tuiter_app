@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  #get 'home/index'
   resources :tweets
   devise_for :users, controllers: { registrations: 'users/registrations'}
   
   resources :users, only: [:show] do
     resources :friends, only: [:create]
+    
   end
 
   resources :friends, only: [:destroy]
   
-  root "tweets#index"
+  root "home#index"
   
   resources :tweets do
     resources :likes

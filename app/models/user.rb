@@ -16,4 +16,6 @@ class User < ApplicationRecord
          def is_following?(other_user)
             other_user.followers.find_by(follower_id:self.id)
          end
+
+         
 end

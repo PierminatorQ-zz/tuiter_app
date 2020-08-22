@@ -11,6 +11,10 @@
         <div class="row">
         <!--name user  -->
             <div class="col"><strong><%= tweet.user.name %></strong><i class="lni lni-checkmark-circle text-blue-dark ml-1"></i><small class="pl-3"><%= tweet.user.email %></small></div>
+             <div class="col-3 text-center">                 
+             <% if tweet.is_retweet?%>
+                    <small><%=link_to "#{tweet.user} has retweeted...", tweet.tweet_ref%></small>
+            <%end%></div>
             <div class="col-1 ml-auto">
             <!--destroy button  -->
             <% if signed_in?%>
@@ -21,7 +25,7 @@
             </div>
         </div>
 
-            <div class="contenido mt-2 mb-2">
+            <div class="contenido mt-2 mb-3">
             <!--Content -->
             <%= tweet.content %>
             </div>
@@ -56,12 +60,14 @@
                 <%= link_to edit_tweet_path(tweet) do %>
                 <span><i class="lni lni-pencil-alt"></i></span>
                 <%end%>
+
+
             </div>
             <div class="col-3">
                 
             <!--retweet button  -->
-                <%= link_to root_path do %>
-                <span><i class="lni lni-share"></i></span>
+                <%= link_to tweet_retweet_path(tweet), method: :post do %>
+                <span><i class="lni lni-share"></i></span><small class="small-2 ml-2"><%= tweet.count_rt %></small>
                 <%end%>
                 
             </div>

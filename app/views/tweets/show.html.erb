@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
+<h2 class="py-3">Tweet</h2>
+<label>Contenido:</label>
+
+<p class="card-show">
+  
   <%= @tweet.content %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <label>Usuario:</label>
   <%= current_user %>
 </p>
 
-<p><%= @tweet.likes.count %> <%= (@tweet.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+<p class="date text-blue-dark"><small class="pr-2 date text-blue-dark">Tu post tiene</small><%= @tweet.likes.count %> <%= (@tweet.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+<!-- 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
-
-
-<h5> Usuarios que le gusta este tweet</h5>
+-->
+<% if @tweet.likes.count > 0 %>
+<strong> Usuarios que le gusta este tweet</strong>
+<%end%>
+<br>
 <% @tweet.likes.each do |tweet| %>
-  <p><%= image_tag(tweet.user.profile_pic, size: '64') %></p>
-  <p><%= tweet.user %></p>
+<div class="d-inline-block text-center">
+  <p class="mt-4"><%= image_tag(tweet.user.profile_pic, size: '64') %></p>
+  <small class="px-4"><%= tweet.user %></small>
+</div>
 <% end %>

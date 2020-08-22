@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="py-4">
+    <%= form.label :content ,"Contenido"%>
+    <%= form.text_area(:content , cols: 29, rows: 5, class:"form-control-edit")%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Actualizar Tweet", class:"btn btn-blue btn-block mt-3" %>
   </div>
 <% end %>

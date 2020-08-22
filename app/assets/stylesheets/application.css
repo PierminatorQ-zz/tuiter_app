@@ -14,7 +14,7 @@
  *= require_self
  */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
-
+ @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 * {
     font-family: 'Poppins', sans-serif;
     --black-light:#11161D;
@@ -42,6 +42,13 @@
     color:var(--blue-light);
 }
 
+.font-fredoka{
+    font-family: 'Fredoka One', cursive;
+}
+
+.logo{
+    font-size: 1.5em;
+}
 .font-pop-light{
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
@@ -142,6 +149,17 @@ label{
     box-shadow: 0px 0px 0px 0px inset, 0px 0px 0px 0px;
 }
 
+.form-control-edit {
+    padding:10px;
+    color: var(--blue-dark);
+    font-size:0.9em;
+    background-color: var(--black-dark);
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: var(--grey-dark);
+    border-radius:0;
+}
+
 input[type=checkbox]{
     height: 25px;
     width: 25px;
@@ -209,6 +227,9 @@ img{
   .lleno{
       color:var(--red-dark);
   }
+  .lleno:hover{
+    color:#7a1f17;
+}
 
   small{
       color: var(--grey);
@@ -246,3 +267,34 @@ img{
   .delete:hover{
     color:var(--red-dark);
 }
+
+.pagination{
+    padding-left: 80px;
+    font-size:0.8em;
+}
+
+.page{
+    border: 1px solid var(--blue-dark);
+    padding:10px;
+    margin: 0 10px 0 10px;
+}
+
+.next, .first, .prev, .last{
+    border: 1px solid var(--blue-dark);
+    margin-right:10px;
+    padding:10px;
+    border-radius: 5px;
+}
+
+.card-show {
+    background-color: var(--black-dark);
+    border-radius: 10px;
+    padding:20px;
+    color:var(--blue-light);
+}
+
+.close{
+    color:var(--blue-light);
+}
+
+

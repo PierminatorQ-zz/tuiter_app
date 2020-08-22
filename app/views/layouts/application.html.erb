@@ -16,7 +16,7 @@
 
 <nav class="navbar navbar-expand-lg bg-black-dark mb-5">
   <div class="container">
-  <%= link_to "Tuitter", root_path, class:"navbar-brand font-pop-bold text-blue-light mr-5"%>
+  <%= link_to "Tuitter", root_path, class:"navbar-brand font-fredoka logo text-blue-light mr-5"%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -47,12 +47,14 @@
 <div class="container mt-2">
 <% if flash[:notice]%>
           <div class="col-12 alert alert-primary text-center">
-          <p class="notice my-auto"><i class="lni lni-checkmark-circle mr-4"></i><%= notice %></p>
+          <p class="notice my-auto"><i class="lni lni-checkmark-circle mr-4"></i><%= notice %> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+          
           </div> 
         <%end%>
         <% if flash[:alert]%>
           <div class="col-12 alert alert-primary text-center">
-        <p class="alert my-auto"><i class="lni lni-warning mr-4"></i><%= alert %></p>
+        <p class="alert my-auto"><i class="lni lni-warning mr-4"></i><%= alert %><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+          
         </div> 
 <%end%>
 </div>
@@ -65,6 +67,8 @@
 </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
 </html>

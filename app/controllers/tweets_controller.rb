@@ -1,11 +1,12 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
+  before_action :set_current_tweet, only: [:retweet]
 
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all.order("created_at DESC")
+    @tweets = Tweet.all.order("created_at DESC").page params[:page]
     @tweet = Tweet.new
   end
 
@@ -23,6 +24,11 @@ class TweetsController < ApplicationController
   def edit
   end
 
+  def retweet
+    new_tweet = Tweet.create(content: @tweet.content, user: current_user, rt_ref: @tweet.id)
+    redirect_to root_path
+  end
+
   # POST /tweets
   # POST /tweets.json
   def create
@@ -30,7 +36,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new }
@@ -44,7 +50,7 @@ class TweetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Tweet was successfully updated.' }
         format.json { render :show, status: :ok, location: @tweet }
       else
         format.html { render :edit }
@@ -72,5 +78,9 @@ class TweetsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tweet_params
       params.require(:tweet).permit(:content)
+    end
+
+    def set_current_tweet
+      @tweet = Tweet.find(params[:tweet_id])
     end
 end

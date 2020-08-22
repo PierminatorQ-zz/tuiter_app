@@ -1,0 +1,15 @@
+<%= @user.name %>
+<%= @user.id %>
+
+
+
+
+
+<% if @relation%>
+<%= link_to 'Unfollow', friend_path(@user), method: :delete, class:"btn-blue" %>
+<%else%>
+<%= link_to 'Follow', user_friends_path(@user), method: :post, class:"btn-blue" %>
+<%end%>
+
+<h2>Followers:</h2><%= @user.followers.count%>
+<h2>Following:</h2><%= @user.following.count%>

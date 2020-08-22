@@ -8,9 +8,19 @@
     </div>
 
     <div class="col-10 content">
-        <div class="row">
+        <div class="row d-flex align-items-center">
         <!--name user  -->
-            <div class="col"><strong><%= tweet.user.name %></strong><i class="lni lni-checkmark-circle text-blue-dark ml-1"></i><small class="pl-3"><%= tweet.user.email %></small></div>
+            <div class="col"><strong><%= tweet.user.name %></strong> 
+         <!--follow button  -->   
+            <%if signed_in?%>
+                <% if current_user.is_following?(tweet.user)%>
+                    <%= link_to 'Unfollow', friend_path(tweet.user), method: :delete, class:"btn-blue-follow" %>
+                <%else%>
+                    <%= link_to 'Follow', user_friends_path(tweet.user), method: :post, class:"btn-blue-follow" %>
+                <%end%> 
+            <%end%>
+        <!--email user  -->
+            <small class="pl-3"><%= tweet.user.email %></small></div>
              <div class="col-3 text-center">                 
              <% if tweet.is_retweet?%>
                     <small><%=link_to "#{tweet.user} has retweeted...", tweet.tweet_ref%></small>

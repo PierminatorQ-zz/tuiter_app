@@ -101,6 +101,22 @@ a:hover {
     padding: 5px 25px 5px 25px;
 }
 
+.btn-blue-follow {
+    color:#FFFFFF;
+    background-color:var(--blue-light);
+    border-color:var(--blue-light);
+    border-radius:20px;
+    font-size: 0.8em;
+    font-weight: 400;
+    padding: 5px 15px 5px 15px;
+}
+
+.btn-blue-follow:hover {
+    color:#FFFFFF;
+    background-color:var(--blue-dark);
+    border-color:var(--blue-dark);
+}
+
 .btn-blue:hover{
     color:#FFFFFF;
     background-color:var(--blue-dark);

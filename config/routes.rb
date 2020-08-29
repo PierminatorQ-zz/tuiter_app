@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   #get 'home/index'
   resources :tweets
   devise_for :users, controllers: { registrations: 'users/registrations'}
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :friends, only: [:destroy]
-  
+  get 'all_tweets', to: 'home#all_tweets', as: 'all_tweets'
   root "home#index"
   
   resources :tweets do

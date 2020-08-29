@@ -12,12 +12,14 @@
         <!--name user  -->
             <div class="col"><strong><%= tweet.user.name %></strong> 
          <!--follow button  -->   
-            <%if signed_in?%>
-                <% if current_user.is_following?(tweet.user)%>
-                    <%= link_to 'Unfollow', friend_path(tweet.user), method: :delete, class:"btn-blue-unfollow" %>
-                <%else%>
-                    <%= link_to 'Follow', user_friends_path(tweet.user), method: :post, class:"btn-blue-follow" %>
-                <%end%> 
+           <%if signed_in?%>
+                <% if current_user != tweet.user%>
+                    <% if current_user.is_following?(tweet.user)%>
+                        <%= link_to 'Unfollow', friend_path(tweet.user), method: :delete, class:"btn-blue-unfollow" %>
+                    <%else%>
+                        <%= link_to 'Follow', user_friends_path(tweet.user), method: :post, class:"btn-blue-follow" %>
+                    <%end%> 
+                <%end%>
             <%end%>
         <!--email user  -->
             <small class="pl-3"><%= tweet.user.email %></small></div>
@@ -28,11 +30,13 @@
             <%end%></div>
             <div class="col-1 ml-auto">
             <!--destroy button  -->
-            <% if signed_in?%>
+        
+
+             <% if signed_in?%>
                 <%= link_to tweet, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="delete"><i class="lni lni-sm lni-trash"></i></span>
                 <%end%>
-            <%end%>
+            <%end%> 
             </div>
         </div>
 
@@ -65,7 +69,7 @@
                 <% end %>
             
             
-                <small class="small-2"><%= tweet.likes.count %></small></div>
+                <small class="small-2"><%= tweet.likes.size %></small></div>
             <div class="col-3">
             <!--Edit button  -->
                 <%= link_to edit_tweet_path(tweet) do %>

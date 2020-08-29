@@ -28,6 +28,9 @@
     <% if signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do%>
       <span><i class="lni lni-exit mr-2"></i></i>Log out</span>
+      <%= link_to all_tweets_path, class:"nav-link" do%>
+      <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
+      <%end%>
       <%end%>
        <%else%>
       <%= link_to new_user_session_path, class:"nav-link" do%>
@@ -36,6 +39,10 @@
       <%= link_to new_user_registration_path, class:"nav-link" do%>
       <span><i class="lni lni-users mr-2"></i>Sign up</span>
       <%end%>
+      <%= link_to all_tweets_path, class:"nav-link" do%>
+      <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
+      <%end%>
+      
     <%end%> 
     
     </div>

@@ -26,28 +26,38 @@
     <span><i class="lni lni-home mr-2"></i>Home</span>
     <%end%>
     <% if signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do%>
-      <span><i class="lni lni-exit mr-2"></i></i>Log out</span>
-      <%= link_to all_tweets_path, class:"nav-link" do%>
-      <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
-      <%end%>
-      <%end%>
-       <%else%>
-      <%= link_to new_user_session_path, class:"nav-link" do%>
-      <span><i class="lni lni-enter mr-2"></i>Log in</span>
-      <%end%>
-      <%= link_to new_user_registration_path, class:"nav-link" do%>
-      <span><i class="lni lni-users mr-2"></i>Sign up</span>
-      <%end%>
-      <%= link_to all_tweets_path, class:"nav-link" do%>
-      <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
-      <%end%>
+        <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do%>
+        <span><i class="lni lni-exit mr-2"></i></i>Log out</span>
+        <%end%>
+        <%= link_to all_tweets_path, class:"nav-link" do%>
+        <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
+        <%end%>
+    <%else%>
+        <%= link_to new_user_session_path, class:"nav-link" do%>
+        <span><i class="lni lni-enter mr-2"></i>Log in</span>
+        <%end%>
+
+        <%= link_to new_user_registration_path, class:"nav-link" do%>
+        <span><i class="lni lni-users mr-2"></i>Sign up</span>
+        <%end%>
+        <%= link_to all_tweets_path, class:"nav-link" do%>
+        <span><i class="lni lni-handshake mr-2"></i></i>Explore</span>
+        <%end%>
       
     <%end%> 
     
     </div>
-      <%= link_to "Crea un Tweet!",root_path,  class:"btn btn-blue ml-auto" %>
-    
+
+    <%if signed_in? %>
+      <!-- Form search  -->
+      <%= form_tag(root_path, method: :get, class:"ml-auto form-search") do %>
+        <div class="form-inline my-2 my-lg-0">
+          <!-- <%= link_to "Limpiar", root_path, class: "btn btn-outline-info my-2 my-sm-0" %> -->    
+          <%= text_field_tag(:search, params[:search], class: "form-control in-search mr-sm-2", type: "search", placeholder: "Search Tuiter") %>
+          <%= submit_tag("Buscar", class: "btn btn-blue-follow my-2 my-sm-0") %>
+        </div>
+      <%end%>
+    <%end%> 
   </div>
   </div>
 </nav>

@@ -193,6 +193,14 @@ label{
     border-radius:0;
 }
 
+.in-search{
+    background-color: var(--black-dark);
+}
+
+.in-search:active, .in-search:focus{
+    background-color: var(--black-dark);
+}
+
 input[type=checkbox]{
     height: 25px;
     width: 25px;
@@ -302,6 +310,7 @@ img{
 }
 
 .pagination{
+    justify-content: flex-end;
     padding-left: 80px;
     font-size:0.8em;
 }

@@ -17,6 +17,12 @@ class HomeController < ApplicationController
         @tweets = Tweet.all.order("created_at DESC").page params[:page]
         @tweet = Tweet.new
       end
+
+      @hasha = Tweet.where('content LIKE ?', '%#%').pluck(:content)
+      @hash = check_hash(@hasha)
+      @count= count_hash(@hash)
+
+
   end
 
   def all_tweets
@@ -25,7 +31,25 @@ class HomeController < ApplicationController
     render :template => "home/index"
   end
 
+  def check_hash(hasha)
+    final=[]
+    hasha.each do |hasht|
+        temp=hasht.split(" ")
+        temp.map{ |r| 
+            if r.include?("#") 
+                three = r[/[#][a-z]*\b/]
+                 final.push(three)
+            end }
+    end
+final
 
+end
+
+def count_hash(number)
+    number.each_with_object(Hash.new(0)) do |element, hash|
+        hash[element] += 1
+     end
+end
 
 
 end

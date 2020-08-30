@@ -1,1 +1,27 @@
-<p>perfil</p>
+<div class="container card px-4 py-3">
+    <div class="row">
+        <div class="col-7 d-flex flex-column justify-content-center mt-4">
+            <%= image_tag(current_user.profile_pic, size: '65') %>
+            <h5 class="mt-2 mb-0"><%= current_user.name  %><i class="lni lni-checkmark-circle ml-1 verified"></i></h5>
+            <small><%=current_user.email%> </small>
+        </div>
+
+        <div class="col-5 margintop">
+            <% if current_user.admin?%>
+                <%= link_to 'Panel', admin_root_path, class:"btn-blue-follow" %>
+            <%end%> 
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around my-3">
+        <small><span class="number mr-1"><%= current_user.following.count%></span>Following</small>
+        <small><span class="number mr-1"><%= current_user.followers.count%></span>Followers</small>
+        <small><span class="number mr-1"><%= current_user.tweets.count%></span>Tweets</small>
+    </div>
+
+    <div class="row d-flex flex-column mt-4 pl-2">
+    <span><span> <i class="lni lni-heart text-grey"></i></span><small class="ml-3"><%= current_user.likes.count%></small> <small>Likes</small>  </span>
+    <span><span> <i class="lni lni-share text-grey mt-2
+    "></i></span><small class="ml-3"><%= current_user.likes.count%></small> <small>Retweets</small>  </span>
+    
+    </div>
+</div>

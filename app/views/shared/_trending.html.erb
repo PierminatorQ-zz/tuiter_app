@@ -1,0 +1,13 @@
+<div class="container p-3">
+    <div class="row">
+        <strong class="line-blue">Trends for you</strong>  
+
+        <ul class="trend_list">
+            <% @count.each do |key,value|%>
+                <li> <a href=""> <%=key%></a> <%=value%> menciones</li> 
+            <%end%>
+        </ul>
+    </div>
+
+
+</div>

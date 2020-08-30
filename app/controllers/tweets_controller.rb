@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
   before_action :set_current_tweet, only: [:retweet]
+  layout "forms_edit", only: [:edit, :show]
 
   # GET /tweets
   # GET /tweets.json

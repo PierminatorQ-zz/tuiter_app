@@ -87,6 +87,10 @@ a:hover {
     text-decoration: none;
 }
 
+.retweet_message{
+    color:var(--grey);
+}
+
 .nav-link{
     margin: 0 20px 0 20px;
     font-size: 0.9em;
@@ -149,6 +153,12 @@ h2{
     letter-spacing: 0.5px;
     font-weight: 700;
     font-size:1.7em;
+}
+
+h5{
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    font-size:1.2em;
 }
 
 label{
@@ -297,7 +307,7 @@ img{
 
   .date{
     font-weight: 400;
-    font-size: 0.8em;
+    font-size: 0.7em;
 
   }
 
@@ -338,5 +348,32 @@ img{
 .close{
     color:var(--blue-light);
 }
+.verified{
+    color:var(--blue-light);
+}
 
+.margintop{
+    margin-top: 95px;
+}
 
+.number{
+    color: var(--blue-light);
+    font-weight: 700;
+    font-size: 1.1em;
+    letter-spacing: 0.3px;
+
+}
+
+.text-grey{
+    color:var(--grey);
+    font-size: 1.1em;
+}
+
+.line-blue{
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--blue-light);
+}
+
+.trend_list{
+    list-style: none;
+}

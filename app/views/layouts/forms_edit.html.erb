@@ -77,17 +77,9 @@
 </div>
 <div class="container center-div">
   <div class="row">
-    <% if signed_in?%>
-      <div class="col-3 "> <%= render 'shared/profile_card' %></div>
-      <%else%>
-      <div class="col-2"></div>
-    <%end%>
-        <div class="col-7 mt-5"><%= yield %></div>
-    <% if signed_in?%>  
-        <div class="col-2"> <%= render 'shared/trending' %></div>
-      <%else%>
-        <div class="col-2"></div>
-    <%end%>
+  <div class="col-1 "></div>
+      <div class="col-10 mt-5"><%= yield %></div>
+  <div class="col-1"></div>
   </div>
 </div>
 

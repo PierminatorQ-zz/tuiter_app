@@ -4,6 +4,7 @@ class UsersController < ApplicationController
         @friend = @user.followers.find_by(follower: current_user)
         @relation = Friend.where(followed_id: @user).where(follower_id: current_user).first
         #byebug
+        #buscando hashtags
         @hasha = Tweet.where('content LIKE ?', '%#%').pluck(:content)
         @hash = check_hash(@hasha)
         @count= count_hash(@hash)

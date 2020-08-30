@@ -375,5 +375,17 @@ img{
 }
 
 .trend_list{
+    margin: 20px 0 10px 0;
+    padding:0px 0px 0px 0px;
     list-style: none;
+}
+
+.trending > a{
+    color:white;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+.trending > a:hover{
+    color:var(--blue-light);
 }

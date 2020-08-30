@@ -1,12 +1,18 @@
-<div class="container p-3">
-    <div class="row">
+<div class="container card">
+    <div class="row mx-1 my-3">
         <strong class="line-blue">Trends for you</strong>  
 
         <ul class="trend_list">
+
             <% @count.each do |key,value|%>
-                <li> <a href=""> <%=key%></a> <%=value%> menciones</li> 
+                <li class="my-0 py-0 trending"> <%=link_to(key, Rails.application.routes.url_helpers.root_path+"?search="+(key.sub '#','%23'))%></a></li> 
+                <li class="mb-3"> <small> <%=value%> menciones</small></li>
+                <hr>
+               
             <%end%>
+            
         </ul>
+        
     </div>
 
 

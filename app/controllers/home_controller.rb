@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  layout "forms_edit", only: [:all_tweets]
+
+
   def index
       if signed_in?
           if( params[:search] && !params[:search].empty? )
@@ -20,7 +23,7 @@ class HomeController < ApplicationController
 
       @hasha = Tweet.where('content LIKE ?', '%#%').pluck(:content)
       @hash = check_hash(@hasha)
-      @count= count_hash(@hash)
+      @count= count_hash(@hash).first(3)
 
 
   end
@@ -29,6 +32,7 @@ class HomeController < ApplicationController
     @tweets = Tweet.all.order("created_at DESC").page params[:page]
     @tweet = Tweet.new
     render :template => "home/index"
+
   end
 
   def check_hash(hasha)
@@ -41,15 +45,15 @@ class HomeController < ApplicationController
                  final.push(three)
             end }
     end
-final
+    final
 
-end
+  end
 
-def count_hash(number)
+  def count_hash(number)
     number.each_with_object(Hash.new(0)) do |element, hash|
         hash[element] += 1
      end
-end
+  end
 
 
 end

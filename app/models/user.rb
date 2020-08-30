@@ -32,5 +32,8 @@ class User < ApplicationRecord
             Tweet.where(user_id:self.id).where.not(rt_ref: nil).count
          end
 
+
+         
+
          
 end

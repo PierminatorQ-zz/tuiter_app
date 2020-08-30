@@ -2,6 +2,14 @@
 <%= @user.id %>
 
 
+<%=%>
+<%=@count.key(@count.values.max)%>
+
+<ul>
+<% @count.each do |key,value|%>
+   <li><%=key%> <%=value%> menciones</li> 
+<%end%>
+</ul>
 
 
 

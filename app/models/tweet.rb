@@ -17,6 +17,7 @@ include ActionView::Helpers::UrlHelper
       new_array.push(word)
     end
     self.content = new_array.join(" ")
+
   end
   
   def count_rt

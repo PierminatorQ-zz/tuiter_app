@@ -22,12 +22,15 @@ class User < ApplicationRecord
          def friends_count
             Friend.where(follower_id:self.id).count
          end
+
          def tweets_count
             Tweet.where(user_id:self.id).count
          end
+
          def likes_given
             self.likes.count
          end
+         
          def retweets_count
             Tweet.where(user_id:self.id).where.not(rt_ref: nil).count
          end
@@ -38,7 +41,9 @@ class User < ApplicationRecord
             user&.valid_password?(password) ? user : nil
          end
          
-
+         def rt_count
+            self.tweets.where.not(rt_ref: nil).count
+         end
 
          
 

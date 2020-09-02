@@ -21,7 +21,7 @@
     <div class="row d-flex flex-column mt-4 pl-2">
     <span><span> <i class="lni lni-heart text-grey"></i></span><small class="ml-3"><%= current_user.likes.count%></small> <small>Likes</small>  </span>
     <span><span> <i class="lni lni-share text-grey mt-2
-    "></i></span><small class="ml-3"><%= Tweet.where(user_id:current_user.id).where.not(rt_ref: nil).count%></small> <small>Retweets</small>  </span>
+    "></i></span><small class="ml-3"><%= current_user.rt_count%></small> <small>Retweets</small>  </span>
     
     </div>
 </div>

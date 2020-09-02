@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  #get 'api/news'
+
+  scope '/api' do
+    get '/news', to: 'api#news', as: 'api_news'
+    get '/:date1/:date2', to: 'api#tweets_by_dates', as: 'tweets_by_dates'
+    post '/tweets', to: 'api#create_tweet'
+  end
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #get 'home/index'

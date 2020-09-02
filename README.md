@@ -1,26 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Tuiter app
 
-Things you may want to cover:
+Tuiter es un clon de twitter creado como desafio para la carrera de fullStack G29 - DesafioLatam
 
-* Ruby version
+## Gemas usadas
 
-* System dependencies
+ bcrypt, devise, kaminari, activeadmin
 
-* Configuration
 
-* Database creation
+## Funcionalidades
 
-* Database initialization
+```ruby
+* creacion de tweets desde la app y desde api.
+* creaciòn de usuario y autenticaciòn en app.
+* funcionalidad de Likes
+* funcionalidad de Retweet
+* funcionalidad de Follow/unfollow
+* funcionalidad de Follow/unfollow
+* panel de administraciòn con Active Admin
+* buscador bàsico
+* Sistema de Hashtags bàsico
+* paginaciòn con Kaminari
+* Acceso desde Api , consulta de tweets con rango de fechas.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+### Versiòn Ruby
+ruby '2.5.3'
 
-* Deployment instructions
+### Versiòn Rails
+rails (6.0.3.2)
 
-* models user, tweet added
-* asociations between models added, bootstrap added
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
+### Author
+Pierre Quintero Hernàndez
